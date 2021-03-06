@@ -1,0 +1,143 @@
+.project {
+  background-color: #FAFAFA;
+}
+
+.project__container {
+  box-sizing: border-box;
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 110px 70px;
+}
+
+.project__descr {
+  margin: 0;
+  padding: 70px 0 110px;
+  list-style-type: none;
+  display: flex;
+}
+
+.project__item {
+  width: 100%;
+  max-width: 550px;
+  margin-right: 40px;
+}
+
+.project__item:last-of-type {
+  margin-right: 0;
+}
+
+.project__title {
+  margin: 0;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+}
+
+.project__subtitle {
+  margin: 26px 0 0;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.project__weeks {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+}
+
+.project__back {
+  flex-grow: 1;
+}
+
+.project__front {
+  flex-grow: 5;
+}
+
+.project__week {
+  margin: 0;
+  padding: 9px 0;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+}
+
+.project__week_back {
+  color: #fff;
+  background-color: #3456F3;
+}
+
+.project__week_front {
+  background-color: #F2F2F2;
+}
+
+.project__tech {
+  margin: 14px 0 0;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #A0A0A0;
+}
+
+@media screen and (max-width: 768px) {
+  .project__container {
+    padding: 90px 50px;
+  }
+
+  .project__descr {
+    flex-wrap: wrap;
+    padding-bottom: 93px;
+  }
+
+  .project__item {
+    margin: 0 30px 56px 0;
+  }
+
+  .project__item:last-of-type {
+    margin: 0;
+  }
+
+  .project__subtitle {
+    margin-top: 22px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .project__container {
+    padding: 70px 18px;
+  }
+
+  .project__descr {
+    padding: 60px 0;
+  }
+
+  .project__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .project__subtitle {
+    margin-top: 16px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .project__week {
+    font-size: 11px;
+    line-height: 13px;
+    padding: 11px 0;
+  }
+
+  .project__tech {
+    font-size: 11px;
+    line-height: 13px;
+    margin-top: 10px;
+  }
+}

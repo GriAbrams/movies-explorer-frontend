@@ -1,0 +1,152 @@
+.student {
+  background-color: #FAFAFA;
+}
+
+.student__container {
+  box-sizing: border-box;
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 110px 70px 100px;
+}
+
+.student__card {
+  padding-top: 66px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.student__image {
+  max-width: 270px;
+  max-height: 327px;
+}
+
+.student__name {
+  margin: 0;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+}
+
+.student__about {
+  margin: 18px 0 0;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.student__info {
+  margin: 26px 0 0;
+  width: 100%;
+  max-width: 600px;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.student__links {
+  margin: 99px 0 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  opacity: 1;
+  transition: opacity .3s linear;
+}
+
+.student__item {
+  margin-right: 20px;
+}
+
+.student__item:last-of-type {
+  margin-right: 0;
+}
+
+.student__item:hover {
+  opacity: .7;
+}
+
+.student__link {
+  color: #000;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .student__container {
+    padding: 90px 50px;
+  }
+
+  .student__image {
+    max-width: 255px;
+  }
+
+  .student__name {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .student__about {
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .student__info {
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 18px;
+    max-width: 364px;
+  }
+
+  .student__links {
+    margin-top: 87px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .student__name {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .student__about {
+    margin-top: 20px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .student__info {
+    font-size: 11px;
+    line-height: 16px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .student__container {
+    padding: 70px 14px;
+  }
+
+  .student__card {
+    flex-direction: column-reverse;
+  }
+
+  .student__image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .student__descr {
+    padding-top: 40px;
+  }
+
+  .student__links {
+    margin-top: 40px;
+  }
+
+  .student__item {
+    margin-right: 26px;
+  }
+}
