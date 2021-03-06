@@ -1,0 +1,59 @@
+.checkbox {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity .3s linear;
+}
+
+.checkbox:hover {
+  opacity: .7;
+}
+
+.сheckbox_invisible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.сheckbox_invisible + .checkbox_visible {
+  display: inline-block;
+  vertical-align: middle;
+  width: 36px;
+  height: 20px;
+}
+
+.сheckbox_invisible:not(:checked) + .checkbox_visible {
+  background-image: url('../../images/check-inactive.svg');
+}
+
+.сheckbox_invisible:checked + .checkbox_visible {
+  background-image: url('../../images/check-active.svg');
+}
+
+.checkbox__text {
+  margin-left: 14px;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .checkbox {
+    flex-direction: row-reverse;
+  }
+
+  .checkbox__text {
+    margin-left: 0;
+    margin-right: 14px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .checkbox {
+    justify-content: center;
+  }
+}
