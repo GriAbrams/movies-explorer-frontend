@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
 function Navigation({ loggedIn }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const isTablet = useMediaQuery({ query: '(max-width: 768px)' });
   const [isOpen, setIsOpen] = React.useState(false);
 
   function handleMenuClick() {
@@ -19,7 +19,7 @@ function Navigation({ loggedIn }) {
           <Link to='/signin' className="navigation__link navigation__link_login">Войти</Link> 
         </>
       ) : (
-        isMobile ? (
+        isTablet ? (
           <>
             <button className={`navigation-mobile__button ${!isOpen ? 'navigation-mobile__button_burger' : 'navigation-mobile__button_close'}`} onClick={handleMenuClick}></button>
             <div className={`${!isOpen ? 'navigation-mobile' : 'navigation-mobile_visible'}`}>

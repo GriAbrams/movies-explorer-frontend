@@ -1,23 +1,27 @@
 import './Movies.css';
+import React from 'react';
 import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
-import Preloader from '../Preloader/Preloader';
-import movies from '../../utils/movies';
 
-function Movies() {
+function Movies({ movies, savedMovies, loggedIn, isLoading, onLikeClick, onDeleteClick, onSearchClick, onCheckboxClick }) {
   return (
     <>
-      <Header loggedIn={true} />
+      <Header loggedIn={loggedIn} />
       <section className="movies">
         <div className="movies__container">
-          <SearchForm />
-          {movies.length === 0 ? (
-            <Preloader />
-          ) : (
-            <MoviesCardList movies={movies} isLiked={false} loadMore={true} />
-          )}
+          <SearchForm
+            onCheckboxClick={onCheckboxClick}
+            onSearchClick={onSearchClick}
+          />
+          <MoviesCardList
+            movies={movies}
+            savedMovies={savedMovies}
+            isLoading={isLoading}
+            onLikeClick={onLikeClick}
+            onDeleteClick={onDeleteClick}
+          />
         </div>
       </section>
       <Footer />

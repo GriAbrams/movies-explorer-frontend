@@ -3,16 +3,18 @@ import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
-import savedMovies from '../../utils/savedMovies';
 
-function SavedMovies() {
+function SavedMovies({ savedMovies, loggedIn, onDeleteClick }) {
   return (
     <>
-      <Header loggedIn={true} />
+      <Header loggedIn={loggedIn} />
       <section className="movies">
         <div className="movies__container">
           <SearchForm />
-          <MoviesCardList movies={savedMovies} isLiked={true} loadMore={false} />
+          <MoviesCardList
+            savedMovies={savedMovies}
+            onDeleteClick={onDeleteClick}
+          />
           <div className="movies__divider"></div>
         </div>
       </section>
