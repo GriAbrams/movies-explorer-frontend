@@ -112,7 +112,8 @@ class Api {
 }
 
 export const mainApi = new Api({
-  url: 'http://localhost:3000',
+  // url: 'http://localhost:3000',
+  url: 'https://api.abrams.students.nomoredomains.rocks',
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
