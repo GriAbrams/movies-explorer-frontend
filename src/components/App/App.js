@@ -26,34 +26,6 @@ function App() {
   const [isCheckboxChecked, setCheckboxChecked] = React.useState(false); // Стейт состояния чекбокса
   const [errorMessage, setErrorMessage] = React.useState('') // Стейт сообщений ошибок
 
-  // Проверка токена
-  React.useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      mainApi.checkToken(token)
-      .then((res) => {
-        if (res) {
-          setLoggedIn(true);
-          history.push('/movies');
-        }
-      }).catch(err => console.log(err));
-    }
-  }, [history]);
-
-  // Регистрация пользователя
-  function handleRegister(name, email, password) {
-    mainApi.registerUser(name, email, password)
-    .then((res) => {
-      localStorage.setItem('token', res.token);
-      setCurrentUser(res);
-      setLoggedIn(true);
-      history.push('/movies');
-    })
-    .catch((err) => {
-      setErrorMessage(errors(err));
-    });
-  }
-
   // Авторизация пользователя
   function handleLogin(email, password) {
     mainApi.loginUser(email, password)
@@ -68,12 +40,33 @@ function App() {
     });
   }
 
-  // Выход из аккаунта
-  function handleSignOut() {
-    localStorage.removeItem('token');
-    setLoggedIn(false);
-    history.push('/');
+  // Регистрация пользователя
+  function handleRegister(name, email, password) {
+    mainApi.registerUser(name, email, password)
+    .then((res) => {
+      setCurrentUser(res);
+      setLoggedIn(true);
+      handleLogin(email, password);
+      history.push('/movies');
+    })
+    .catch((err) => {
+      setErrorMessage(errors(err));
+    });
   }
+
+  // Проверка токена
+  React.useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      mainApi.checkToken(token)
+      .then((res) => {
+        if (res) {
+          setLoggedIn(true);
+          history.push('/movies');
+        }
+      }).catch(err => console.log(err));
+    }
+  }, [history]);
 
   // Получение данных о пользователе и сохраненных им фильмов
   React.useEffect(() => {
@@ -128,6 +121,8 @@ function App() {
       }
       return movie.duration < 41;
     });
+    console.log(isCheckboxChecked)
+    console.log(shortMovies)
     localStorage.setItem('movies', JSON.stringify(shortMovies));
     setMovies(shortMovies);
   }
@@ -161,6 +156,15 @@ function App() {
       setSavedMovies(newMovies);
     }).catch((err) => console.log(err));
   }
+
+    // Выход из аккаунта
+    function handleSignOut() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('movies');
+      localStorage.removeItem('keyword');
+      setLoggedIn(false);
+      history.push('/');
+    }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
