@@ -59,19 +59,59 @@
   outline: none;
 }
 
+.profile__input:invalid {
+  color: #EE3465;
+}
+
+.profile__error {
+  display: block;
+  margin-top: 6px;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #EE3465;
+  text-align: right;
+}
+
 .profile__line {
   width: 100%;
-  margin: 16px 0;
+  margin: 10px 0 16px;
   border-bottom: 1px solid #E8E8E8;
 }
 
-.profile__server-error {
+.profile__message {
   font-weight: normal;
   font-size: 11px;
   line-height: 13px;
   text-align: center;
-  color: #FF004C;
   margin-bottom: 0 0 20px;
+}
+
+.profile__message_error {
+  color: #FF004C;
+}
+
+.profile__message_success {
+  color: #3456F3;
+}
+
+.profile__save-button {
+  width: 410px;
+  height: 45px;
+  background: #3456F3;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+}
+
+.profile__save-button:disabled {
+  background-color: #F8F8F8;
+  color: #C2C2C2;
+  cursor: default;
 }
 
 .profile__button {
@@ -89,6 +129,10 @@
 
 .profile__button:hover {
   opacity: .7;
+}
+
+.profile__button:disabled {
+  cursor: default;
 }
 
 .profile__button_exit {

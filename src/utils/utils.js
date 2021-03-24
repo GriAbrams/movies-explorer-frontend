@@ -7,6 +7,11 @@ const transformDuration = (duration) => {
   return `${hours === 0 ? '' : `${hours}ч`} ${minutes === 0 ? '' : `${minutes}м`}`
 }
 
+const filterMovies = (array, key) => {
+  return array.filter(item => item.nameRU.toLowerCase().includes(key.toLowerCase())
+  || item.description.toLowerCase().includes(key.toLowerCase()));
+}
+
 const checkTrailerHref = (movie) => {
   if (movie.trailerLink) {
     return movie.trailerLink;
@@ -43,12 +48,10 @@ const errors = (err) => {
   return '500 На сервере произошла ошибка.';
 }
 
-const resultErrorMessage = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз'
-
 export {
+  filterMovies,
   transformDuration,
   checkTrailerHref,
   checkImageSrc,
   errors,
-  resultErrorMessage,
 }

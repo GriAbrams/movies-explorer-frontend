@@ -1,6 +1,7 @@
-import './Promo.css';
 import promoImg from '../../images/promo-img.svg';
 import { HashLink } from 'react-router-hash-link';
+
+import './Promo.css';
 
 function Promo() {
   return (

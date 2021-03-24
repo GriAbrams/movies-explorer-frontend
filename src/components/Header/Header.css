@@ -2,8 +2,12 @@
   background-color: #DDDEE3;
 }
 
-.header_logged {
+.header_light {
   background-color: #FAFAFA;
+}
+
+.header_grey {
+  background-color: #DDDEE3;
 }
 
 .header__container {

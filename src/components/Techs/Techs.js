@@ -1,5 +1,6 @@
-import './Techs.css';
 import SectionTitle from '../SectionTitle/SectionTitle';
+
+import './Techs.css';
 
 function Techs() {
   return (

@@ -47,6 +47,7 @@ class Api {
     return this._sendRequest(`${this._url}/users/me`, {
       method: 'GET',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       }
@@ -57,6 +58,7 @@ class Api {
     return this._sendRequest(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
@@ -71,6 +73,7 @@ class Api {
     return this._sendRequest(`${this._url}/movies`, {
       method: 'POST',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
@@ -94,6 +97,7 @@ class Api {
     return this._sendRequest(`${this._url}/movies`, {
       method: 'GET',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       }
@@ -104,6 +108,7 @@ class Api {
     return this._sendRequest(`${this._url}/movies/${movieId}`, {
       method: 'DELETE',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       }
@@ -112,8 +117,8 @@ class Api {
 }
 
 export const mainApi = new Api({
-  // url: 'http://localhost:3000',
-  url: 'https://api.abrams.students.nomoredomains.rocks',
+  url: 'http://localhost:3000',
+  // url: 'https://api.abrams.students.nomoredomains.rocks',
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json'

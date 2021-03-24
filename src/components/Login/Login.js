@@ -1,10 +1,11 @@
-import './Login.css';
 import React from 'react';
 import Sign from '../Sign/Sign';
 import useFormWithValidation from '../../utils/validate';
 
+import './Login.css';
+
 function Login({ onLogin, errorMessage }) {
-  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation({ email: '', password: '' });
 
   function handleSubmit(evt) {
     evt.preventDefault();

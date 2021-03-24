@@ -1,7 +1,8 @@
 import React from 'react';
-import './Navigation.css';
 import { Link, NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+
+import './Navigation.css';
 
 function Navigation({ loggedIn }) {
   const isTablet = useMediaQuery({ query: '(max-width: 768px)' });

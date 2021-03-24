@@ -1,17 +1,32 @@
-import './Movies.css';
 import React from 'react';
 import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 
-function Movies({ movies, savedMovies, loggedIn, isLoading, onLikeClick, onDeleteClick, onSearchClick, onCheckboxClick }) {
+import './Movies.css';
+
+function Movies({
+  savedMovies,
+  loggedIn,
+  isLoading,
+  onLikeClick,
+  onDeleteClick,
+  onSearchClick,
+  moviesCheckbox,
+  onCheckboxClick,
+  searchError,
+  isNotFound,
+}) {
+  const movies = JSON.parse(localStorage.getItem('movies')) || [];
+
   return (
     <>
       <Header loggedIn={loggedIn} />
       <section className="movies">
         <div className="movies__container">
           <SearchForm
+            moviesCheckbox={moviesCheckbox}
             onCheckboxClick={onCheckboxClick}
             onSearchClick={onSearchClick}
           />
@@ -21,6 +36,8 @@ function Movies({ movies, savedMovies, loggedIn, isLoading, onLikeClick, onDelet
             isLoading={isLoading}
             onLikeClick={onLikeClick}
             onDeleteClick={onDeleteClick}
+            searchError={searchError}
+            isNotFound={isNotFound}
           />
         </div>
       </section>

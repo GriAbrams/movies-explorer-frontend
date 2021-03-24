@@ -1,8 +1,9 @@
-import './Sign.css';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 
-function Sign({ title, name, buttonText, children, onSubmit, isValid, isError, errorMessage }) {
+import './Sign.css';
+
+function Sign({ title, name, buttonText, children, onSubmit, isValid, errorMessage }) {
   return (
     <div className="sign">
       <div className="sign__container">

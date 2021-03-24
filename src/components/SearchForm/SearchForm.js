@@ -1,8 +1,9 @@
-import './SearchForm.css';
 import React from 'react';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm({ onCheckboxClick, onSearchClick }) {
+import './SearchForm.css';
+
+function SearchForm({ onCheckboxClick, moviesCheckbox, savedMoviesCheckbox, onSearchClick }) {
   const [value, setValue] = React.useState('')
 
   function handleChange(evt) {
@@ -28,7 +29,7 @@ function SearchForm({ onCheckboxClick, onSearchClick }) {
         required
       />
       <button className="search__button" type="submit"></button>
-      <FilterCheckbox onCheckboxClick={onCheckboxClick}/>
+      <FilterCheckbox moviesCheckbox={moviesCheckbox} savedMoviesCheckbox={savedMoviesCheckbox} onCheckboxClick={onCheckboxClick}/>
     </form>
   )
 }

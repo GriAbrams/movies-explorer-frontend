@@ -1,7 +1,8 @@
-import './MoviesCard.css';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { transformDuration, checkTrailerHref, checkImageSrc } from '../../utils/utils';
+
+import './MoviesCard.css';
 
 function MoviesCard({ movie, savedMovies, onLikeClick, onDeleteClick }) {
   const { pathname } = useLocation();
@@ -11,8 +12,7 @@ function MoviesCard({ movie, savedMovies, onLikeClick, onDeleteClick }) {
     if(!isLiked) {
       onLikeClick(movie);
     } else {
-      const savedMovie = savedMovies.filter((m) => m !== movie);
-      onDeleteClick(savedMovie[0]._id);
+      onDeleteClick(savedMovies.find((savedMovie) => savedMovie.movieId === movie.id)?._id);
     }
   }
 

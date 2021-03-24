@@ -1,10 +1,11 @@
-import './Register.css';
 import React from 'react';
 import Sign from '../Sign/Sign';
 import useFormWithValidation from '../../utils/validate';
 
+import './Register.css';
+
 function Register({ onRegister, errorMessage }) {
-  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation({ name: '', email: '', password: '' });
 
   function handleSubmit(evt) {
     evt.preventDefault();

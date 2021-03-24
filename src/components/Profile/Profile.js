@@ -1,66 +1,67 @@
-import './Profile.css';
 import React from 'react';
 import Header from '../Header/Header';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import useFormWithValidation from '../../utils/validate';
 
-function Profile({ onUpdateUser, onSignOut, errorMessage }) {
+import './Profile.css';
+
+function Profile({ loggedIn, onUpdateUser, onSignOut, errorMessage, successMessage }) {
   const currentUser = React.useContext(CurrentUserContext);
-  const { values, handleChange, errors, isValid } = useFormWithValidation();
+  const { values, handleChange, errors, isValid } = useFormWithValidation({ name: currentUser.name, email: currentUser.email });
+  const [isEditActive, setEditActive] = React.useState(false);
 
-  console.log(values)
-
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-
-  function handleChangeName(evt) {
-    setName(evt.target.value);
-  }
-
-  function handleChangeEmail(evt) {
-    setEmail(evt.target.value);
-  }
+  const saveButtonToggle = () => setEditActive(true);
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    onUpdateUser({ name, email });
+    onUpdateUser({ name: values.name, email: values.email });
   }
-
-  React.useEffect(() => {
-    setName(currentUser.name);
-    setEmail(currentUser.email);
-  }, [currentUser]); 
 
   return (
     <>
-    <Header loggedIn={true} />
+    <Header loggedIn={loggedIn} />
     <div className="profile">
       <div className="profile__container">
         <h2 className="profile__title">Привет, {currentUser.name}!</h2>
-        <form className="profile__form" name="profile" onSubmit={handleSubmit}>
+        <form className="profile__form" name="profile" onSubmit={handleSubmit} noValidate>
           <fieldset className="profile__fieldset">
             <label className="profile__label">Имя
               <input
                 className="profile__input"
                 type="text"
-                value={name || ''}
-                onChange={handleChangeName}
+                name="name"
+                value={values.name || ''}
+                onChange={handleChange}
+                required
+                disabled={!isEditActive}
               />
             </label>
+            <span className="profile__error" id="profile__input-error">{errors.name}</span>
             <div className="profile__line"></div>
             <label className="profile__label">Почта
               <input
                 className="profile__input"
                 type="email"
-                value={email || ''}
-                onChange={handleChangeEmail}
+                name="email"
+                value={values.email || ''}
+                onChange={handleChange}
+                required
+                disabled={!isEditActive}
               />
             </label>
+            <span className="profile__error" id="profile__input-error">{errors.email}</span>
           </fieldset>
           <fieldset className="profile__fieldset">
-            <p className="profile__server-error">{errorMessage}</p>
-            <button className="profile__button">Редактировать</button>
-            <button className="profile__button profile__button_exit" onClick={onSignOut}>Выйти из аккаунта</button>
+            {successMessage && <p className="profile__message profile__message_success">{successMessage}</p>}
+            {errorMessage && <p className="profile__message profile__message_error">{errorMessage}</p>}
+            {isEditActive ? (
+              <button className="profile__save-button" type="submit" disabled={!isValid}>Сохранить</button>
+            ) : (
+              <>
+                <button className="profile__button" onClick={saveButtonToggle}>Редактировать</button>
+                <button className="profile__button profile__button_exit" onClick={onSignOut}>Выйти из аккаунта</button>
+              </>
+            )}
           </fieldset>
             
         </form>
