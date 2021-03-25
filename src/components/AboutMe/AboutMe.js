@@ -1,6 +1,8 @@
-import './AboutMe.css';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import student from '../../images/student.jpg';
+import { GITHUB_LINK, FACEBOOK_LINK } from '../../utils/contants';
+
+import './AboutMe.css';
 
 function AboutMe() {
   return (
@@ -15,10 +17,10 @@ function AboutMe() {
             и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб&#8209;разработке, начал заниматься фриланс&#8209;заказами и ушёл с постоянной работы.</p>
             <ul className="student__links">
               <li className="student__item">
-                <a className="student__link" href="https://www.facebook.com/profile.php?id=100011154459308" target="_blank" rel="noreferrer">Facebook</a>
+                <a className="student__link" href={FACEBOOK_LINK} target="_blank" rel="noreferrer">Facebook</a>
               </li>
               <li className="student__item">
-                <a className="student__link" href="https://github.com/GriAbrams" target="_blank" rel="noreferrer">Github</a>
+                <a className="student__link" href={GITHUB_LINK} target="_blank" rel="noreferrer">Github</a>
               </li>
             </ul>
           </div>

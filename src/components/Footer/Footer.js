@@ -1,3 +1,5 @@
+import { GITHUB_LINK, PRAKTIKUM_LINK, FACEBOOK_LINK } from '../../utils/contants';
+
 import './Footer.css';
 
 function Footer() {
@@ -9,13 +11,13 @@ function Footer() {
           <p className="footer__copyright">© 2020</p>
           <ul className="footer__links">
             <li className="footer__item">
-              <a className="footer__link" href="https://praktikum.yandex.ru" target="_blank" rel="noreferrer">Яндекс.Практикум</a>
+              <a className="footer__link" href={PRAKTIKUM_LINK} target="_blank" rel="noreferrer">Яндекс.Практикум</a>
             </li>
             <li className="footer__item">
-              <a className="footer__link" href="https://github.com/GriAbrams" target="_blank" rel="noreferrer">Github</a>
+              <a className="footer__link" href={GITHUB_LINK} target="_blank" rel="noreferrer">Github</a>
             </li>
             <li className="footer__item">
-              <a className="footer__link" href="https://www.facebook.com/profile.php?id=100011154459308" target="_blank" rel="noreferrer">Facebook</a>
+              <a className="footer__link" href={FACEBOOK_LINK} target="_blank" rel="noreferrer">Facebook</a>
             </li>
           </ul>
         </div>
